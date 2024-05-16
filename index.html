@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rewilding Docs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+    <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+    <script src="https://unpkg.com/@turf/turf/turf.min.js"></script>
+    <script src="https://unpkg.com/esri-leaflet-vector@4.0.0/dist/esri-leaflet-vector.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <button class="hamburger">&#9776;</button>
+        <div class="left">
+            <div class="nav-main">
+                <header class="top">
+                    <h1>RewildAI ✨</h1>
+                </header>
+                <div class="nav-block">
+                    <div class="nav-title">
+                        <p class="nav-title-text">Ai</p>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="chatbot">Rewilding chatbot</a>
+                            </p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="apps">Useful apps</a>
+                            </p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="news">News</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-block">
+                    <div class="nav-title">
+                        <p class="nav-title-text">Guides</p>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="home">Getting Started</a>
+                            </p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="native-plants">Native Plants</a>
+                            </p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="urban-rewilding">Urban Rewilding</a>
+                            </p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="wildflower-meadow-creation">Wildflower Meadows</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-block">
+                    <div class="nav-title">
+                        <p class="nav-title-text">Reference</p>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">Rewilding Network</p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">Farmer Library</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-block">
+                    <div class="nav-title">
+                        <p class="nav-title-text">Tools</p>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" id="carbon-cal" data-content="carbon-calculator">Carbon Calculator</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" id="habitat-cal" data-content="habitat-calculator">Priority Habitat
+                                    Calculator</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-block">
+                    <div class="nav-title">
+                        <p class="nav-title-text">Support Us</p>
+                    </div>
+                    <div class="nav-link-group">
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="donate">Donate</a></p>
+                        </div>
+                        <div class="nav-link">
+                            <p class="nav-link-text">
+                                <a href="#" data-content="paper">Paper Copy</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="quotes-main" ><p id="textRoller">"Look deep into nature, and then you will understand everything better." - Albert Einstein</p></div>
+            <div id="chatbot" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Rewilding chatbot helper</h1>
+
+                        <h2>Introduction</h2>
+                        <p>Discover the crucial role that native plants play in the different ecosystems.
+                            Understanding their importance is key to promoting biodiversity, preserving ecosystems, and
+                            creating sustainable landscapes.</p>
+
+                        <div class="chatbot-box">
+                            <p class="chatbot-text">Hi, I'm your rewilding helper. 👋</p>
+                        </div>
+                        <div class="chatbot-type">
+                            <p class="chatbot-type-placeholder">Start typing here...</p>
+                        </div>
+
+
+                    </div>
+                    <div class="content-link">
+                        <p>Ai chatbots are not without their flaws, for full disclaimers and more information please
+                            read the following pages. <a href="#" target="_blank">Chatbots</a> and
+                            <a href="#" target="_blank">Rise of the machines</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="apps" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Useful wildlife apps</h1>
+                        <p>We have hand picked some useful ID apps for learing and for recording wildlife. You will find
+                            apps for birds, plants, insects, and more. The ratings our based on their ease of use,
+                            reliabiltiy, and accuracy.</p>
+                        <h2>Ai apps</h2>
+                        <div class="app-tile-container">
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <h2>Id apps</h2>
+                        <div class="app-tile-container">
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                        </div>
+                        <h2>Map apps</h2>
+                        <div class="app-tile-container">
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐</div>
+                            </div>
+                            <div class="app-tile">
+                                <div class="app-picture"><img src="" alt=""></div>
+                                <div class="app-title">App name</div>
+                                <div class="app-pick">⭐⭐⭐⭐</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-link">
+                        <p>All rights are reserved by the respective owners of these apps.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="news" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Nature Ai news</h1>
+
+                        <h2>AI-Powered Crop Monitoring Boosts Agricultural Efficiency</h2>
+                        <p>Farmers are increasingly turning to AI-powered solutions for crop monitoring, utilizing
+                            drones and satellite imagery to gather data on crop health and growth patterns. These
+                            technologies analyze data in real-time, allowing farmers to make informed decisions about
+                            irrigation, fertilization, and pest control, leading to increased yields and reduced
+                            environmental impact.</p>
+                        <div class="content-link">
+                            <p> <a href="#" target="_blank">AI-Powered Crop Monitoring</a>.
+                            </p>
+                        </div>
+                        <h2>Robotics in Forestry: Autonomous Machines Aid in Tree Planting</h2>
+                        <p>Forestry companies are integrating autonomous robots into tree planting operations to enhance efficiency and scale reforestation efforts. These robots can plant trees at a much faster rate than human laborers, covering vast areas with precision and reducing the time and cost associated with reforestation projects.
+                            Reality: This reflects actual developments where companies like DroneSeed are using drones equipped with AI to plant trees in areas affected by wildfires or deforestation. These drones are capable of planting tree seeds with high precision and efficiency.</p>
+                        <div class="content-link">
+                            <p> <a href="#" target="_blank">Autonomous Tree Planting</a>.
+                            </p>
+                        </div>
+                        <h2>Smart Sensors Enhance Water Management in Urban Green Spaces</h2>
+                        <p>Cities are implementing smart sensor technology in urban parks and green spaces to monitor soil moisture levels, weather conditions, and plant health in real-time. These sensors collect data that is analyzed by AI algorithms to optimize watering schedules, reduce water waste, and ensure the vitality of urban greenery.</p>
+                        <div class="content-link">
+                            <p> <a href="#" target="_blank">Smart Water Sensors</a>.
+                            </p>
+                        </div>
+                        <h2>AI-Assisted Marine Conservation: Algorithms Aid in Species Identification</h2>
+                        <p>Marine biologists are utilizing AI algorithms to analyze underwater footage and identify marine species more accurately and efficiently. These algorithms can distinguish between different species of fish, coral, and other marine life, providing valuable data for conservation efforts and ecosystem management.</p>
+                        <div class="content-link">
+                            <p> <a href="#" target="_blank">Marine Species Identification</a>.
+                            </p>
+                        </div>
+                        <h2>Precision Agriculture: AI Optimizes Fertilizer Application</h2>
+                        <p>Farmers are adopting precision agriculture techniques powered by AI to optimize fertilizer application and reduce environmental impact. AI algorithms analyze soil composition, weather patterns, and crop needs to determine the precise amount and timing of fertilizer application, minimizing nutrient runoff and enhancing crop yield.</p>
+                        <div class="content-link">
+                            <p> <a href="#" target="_blank">AI Precision Fertilizer</a>.
+                            </p>
+                        </div>
+                        
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div id="home" class="content">
+                <div class="content-block">
+                    <div class="content-title">
+                        <h2>Welcome 👋</h2>
+                    </div>
+                    <div class="content-text">
+                        <h1>Getting Started</h1>
+                        <h2>Learn. Write. Share.</h2>
+                        <p>Learn the basics of Rewilding, if there's anything you disagree with please write to us, this
+                            website was created to help share some of the information from across the industry and
+                            online, and put it in one place for everyone.</p>
+
+                        <h2>What is Rewilding?</h2>
+                        <p>Rewilding is a progressive approach to conservation. It’s about letting nature take care of
+                            itself, enabling natural processes to shape land and sea, repair damaged ecosystems and
+                            restore degraded landscapes. Through rewilding, wildlife’s natural rhythms create wilder,
+                            more biodiverse habitats.</p>
+
+                        <h2>Why Rewild?</h2>
+                        <p>Our planet is in crisis. We’re facing a climate emergency, and one million species are at
+                            risk of extinction. We need to act now to reverse the damage and restore nature. Rewilding
+                            offers hope for the future, for wildlife and for us.</p>
+
+                        <h2>How to Rewild?</h2>
+                        <p>There are many ways to rewild. It can be as simple as letting your garden grow wild, or as
+                            ambitious as reintroducing lost species to a whole landscape. Rewilding can be done anywhere
+                            – from gardens and farms to entire regions. It’s about working with nature, not against it.
+                        </p>
+
+                        <h2>Common misconceptions...</h2>
+                        <p>There are many misconceptions about rewilding. It’s not about abandoning the countryside or
+                            leaving it to run wild. It’s not about reintroducing dangerous predators or taking land out
+                            of production. And it’s not about stopping people from enjoying the countryside. Rewilding
+                            is about making space for nature to come back.</p>
+                    </div>
+                    <div class="content-link">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div id="native-plants" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Importance of Native Plants</h1>
+
+                        <h2>Introduction</h2>
+                        <p>Discover the crucial role that native plants play in the different ecosystems.
+                            Understanding their importance is key to promoting biodiversity, preserving ecosystems, and
+                            creating sustainable landscapes.</p>
+
+                        <h2>Why Prioritise Native Plants?</h2>
+                        <p>Choosing native plants goes beyond aesthetics; it's a commitment to environmental health and
+                            resilience. Here are some key reasons to prioritize native species:</p>
+                        <ul>
+                            <li><strong>Biodiversity Support:</strong> Native plants provide habitats and food sources
+                                for a diverse range of wildlife, including insects, birds, and mammals.</li>
+                            <li><strong>Ecosystem Resilience:</strong> Native plants have evolved alongside local pests
+                                and diseases, contributing to the resilience of ecosystems.</li>
+                            <li><strong>Conservation of Unique Species:</strong> By choosing native plants, you actively
+                                participate in the conservation of indigenous plant species that are often unique to
+                                specific regions.</li>
+                            <li><strong>Adaptation to Local Conditions:</strong> Native plants are naturally adapted to
+                                local climates, soil types, and other environmental factors, making them well-suited to
+                                thrive in their native habitats.</li>
+                            <li><strong>Support for Pollinators:</strong> Native plants play a crucial role in
+                                supporting pollinators such as bees and butterflies, contributing to the overall health
+                                of ecosystems.</li>
+                        </ul>
+
+                        <h2>The Environmental Impact of Native Plants</h2>
+                        <p>Understanding the broader environmental impact of prioritizing native plants helps highlight
+                            their significance:</p>
+                        <ul>
+                            <li><strong>Carbon Sequestration:</strong> Native plants contribute to carbon sequestration,
+                                helping mitigate the effects of climate change.</li>
+                            <li><strong>Soil Health:</strong> Native plants often have deep root systems that improve
+                                soil structure and prevent erosion, promoting long-term soil health.</li>
+                            <li><strong>Water Conservation:</strong> Well-adapted to local conditions, native plants
+                                typically require less water once established, contributing to water conservation
+                                efforts.</li>
+                            <li><strong>Sustainable Landscaping:</strong> Prioritizing native plants in landscaping
+                                reduces the need for excessive maintenance, chemical inputs, and irrigation, promoting
+                                sustainable gardening practices.</li>
+                        </ul>
+
+                        <h2>Encouraging Biodiversity through Native Plants</h2>
+                        <p>Native plants are essential for fostering biodiversity, creating interconnected and balanced
+                            ecosystems. Here's how they contribute:</p>
+                        <ul>
+                            <li><strong>Wildlife Habitats:</strong> Native plants provide critical habitats for a wide
+                                range of wildlife species, supporting complex food webs.</li>
+                            <li><strong>Pollinator Support:</strong> Many native plants are specifically adapted to
+                                local pollinators, ensuring the continuation of essential ecological processes.</li>
+                            <li><strong>Resilient Ecosystems:</strong> The diversity of native plants contributes to the
+                                resilience of ecosystems, making them more adaptable to environmental changes.</li>
+                        </ul>
+
+                        <!--<h2>Step 8: Raise Awareness</h2>
+                        <p>Raise awareness about the benefits of urban rewilding. Use social media, community events,
+                            and local media to share success stories and inspire others to join the rewilding movement
+                            in urban areas.</p>
+                        <p class="more"><i><b>Reasoning:</b> Raising awareness is key to building support for urban
+                                rewilding. Utilizing social media, community events, and local media helps share success
+                                stories and inspire others to participate. This step aims to create a broader movement,
+                                encouraging individuals and communities to contribute to the rewilding effort in urban
+                                areas.</i></p>
+                        <div class="read-more">Read more...</div>-->
+
+                        <h2>Conclusion</h2>
+                        <p>Recognizing the importance of native plants in the UK is the first step towards creating
+                            sustainable and resilient landscapes. By prioritizing native species, you actively
+                            contribute to the preservation of biodiversity, support ecosystems, and promote a healthier
+                            environment.</p>
+
+                    </div>
+                    <div class="content-link">
+                        <p>For a comprehensive list of native plants and more information, refer to resources such as <a
+                                href="https://www.plantlife.org.uk/" target="_blank">Plantlife</a> and <a
+                                href="https://www.rhs.org.uk/" target="_blank">Royal Horticultural Society (RHS)</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="urban-rewilding" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Urban Rewilding Guide for the UK</h1>
+
+                        <h2>Introduction</h2>
+                        <p>Transforming urban spaces into green havens benefits both people and wildlife. Follow these
+                            steps to embark on an urban rewilding journey in the UK.</p>
+
+                        <h2>Step 1: Assess Your Urban Space</h2>
+                        <p>Conduct a thorough assessment of your urban area. Identify available green spaces, assess
+                            soil quality, and determine sunlight exposure. Consider existing biodiversity and potential
+                            barriers to rewilding.</p>
+                        <p class="more"><i><b>Reasoning:</b> A thorough assessment is the foundation of any successful
+                                rewilding project. Identifying available green spaces, evaluating soil quality, and
+                                determining sunlight exposure help understand the existing conditions. This step allows
+                                planners to consider the potential challenges and opportunities for rewilding within the
+                                urban environment.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 2: Native Plant Selection</h2>
+                        <p>Choose native plant species that are well-suited to the UK climate. Opt for a diverse mix of
+                            plants to support local pollinators and create resilient ecosystems. Consult local plant
+                            lists and nurseries for suitable options.</p>
+                        <p class="more"><i><b>Reasoning:</b> Native plants are adapted to the local climate and support
+                                local wildlife. Choosing a diverse mix of native species promotes resilience in
+                                ecosystems and provides essential resources for pollinators. Relying on local plant
+                                lists and nurseries ensures that the selected plants are well-suited to the UK
+                                climate.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 3: Green Infrastructure Integration</h2>
+                        <p>Integrate green infrastructure into urban planning. Advocate for green roofs, living walls,
+                            and street tree planting. Collaborate with local authorities to enhance biodiversity in
+                            public spaces and along streets.</p>
+                        <p class="more"><i><b>Reasoning:</b> Integrating green infrastructure into urban planning is
+                                crucial for creating sustainable and resilient urban ecosystems. Green roofs, living
+                                walls, and street tree planting contribute to biodiversity and enhance the overall
+                                aesthetic of urban spaces. Collaborating with local authorities ensures a coordinated
+                                effort to maximize the impact of green infrastructure.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 4: Community Engagement</h2>
+                        <p>Engage the local community in rewilding efforts. Organize workshops, tree planting events,
+                            and educational programs. Foster a sense of ownership and pride in the urban green spaces,
+                            encouraging sustainable practices.</p>
+                        <p class="more"><i><b>Reasoning:</b> Engaging the local community is essential for the success
+                                and sustainability of urban rewilding projects. Workshops, tree planting events, and
+                                educational programs foster a sense of ownership and pride among residents. This step
+                                aims to build a community that actively participates in the care and preservation of
+                                urban green spaces.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 5: Wildlife-Friendly Design</h2>
+                        <p>Design urban spaces with wildlife in mind. Include features such as bird boxes, insect
+                            hotels, and water sources. Create habitat diversity to attract a variety of species,
+                            enhancing the overall ecological balance.</p>
+                        <p class="more"><i><b>Reasoning:</b> Designing urban spaces with wildlife in mind creates
+                                habitats that support a variety of species. Features such as bird boxes, insect hotels,
+                                and water sources contribute to biodiversity. Habitat diversity enhances the overall
+                                ecological balance, creating a more resilient and thriving urban ecosystem.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 6: Sustainable Maintenance Practices</h2>
+                        <p>Adopt sustainable maintenance practices. Minimize the use of pesticides and herbicides,
+                            opting for organic alternatives. Encourage natural processes and allow some areas to grow
+                            wild, providing shelter for wildlife.</p>
+                        <p class="more"><i><b>Reasoning:</b> Adopting sustainable maintenance practices aligns with the
+                                principles of rewilding. Minimizing the use of pesticides and herbicides helps maintain
+                                a healthy environment for both wildlife and humans. Allowing some areas to grow wild
+                                supports natural processes and provides additional shelter for wildlife.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 7: Monitoring and Adaptation</h2>
+                        <p>Implement a monitoring system to track changes in biodiversity. Regularly assess the success
+                            of rewilding initiatives and adapt strategies accordingly. Collaborate with local
+                            environmental groups for data collection and analysis.</p>
+                        <p class="more"><i><b>Reasoning:</b> Continuous monitoring is crucial for assessing the success
+                                of rewilding initiatives. Tracking changes in biodiversity provides valuable insights
+                                into the effectiveness of implemented strategies. Collaborating with local environmental
+                                groups ensures a comprehensive approach to data collection and analysis, enabling
+                                informed decision-making and adaptation.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 8: Raise Awareness</h2>
+                        <p>Raise awareness about the benefits of urban rewilding. Use social media, community events,
+                            and local media to share success stories and inspire others to join the rewilding movement
+                            in urban areas.</p>
+                        <p class="more"><i><b>Reasoning:</b> Raising awareness is key to building support for urban
+                                rewilding. Utilizing social media, community events, and local media helps share success
+                                stories and inspire others to participate. This step aims to create a broader movement,
+                                encouraging individuals and communities to contribute to the rewilding effort in urban
+                                areas.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Conclusion</h2>
+                        <p>Urban rewilding in the UK is a collective effort that brings numerous benefits to communities
+                            and ecosystems. By following these steps, you contribute to creating healthier, more
+                            sustainable urban environments.</p>
+
+                    </div>
+                    <div class="content-link">
+                        <!--<p>Read the guide</p>-->
+                    </div>
+                </div>
+            </div>
+            <div id="wildflower-meadow-creation" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Establishing a Native Wildflower Meadow for Conservation</h1>
+
+                        <h2>Introduction</h2>
+                        <p>Create a biodiverse habitat to support local ecosystems and enhance conservation efforts by
+                            establishing a native wildflower meadow. Follow these scientifically informed steps to
+                            ensure
+                            optimal success.</p>
+
+                        <h2>Step 1: Site Selection and Analysis</h2>
+                        <p>Conduct a thorough analysis of the site, considering soil type, drainage, and sunlight
+                            exposure.
+                            Choose a location with well-drained, nutrient-poor soil, and ensure it receives a minimum of
+                            six
+                            hours of sunlight daily for optimal wildflower growth. </p>
+                        <p class="more"><i><b>Reasoning:</b> A thorough analysis of the site is crucial because
+                                different
+                                wildflower species have specific environmental requirements. By considering soil type,
+                                drainage, and sunlight exposure, conservation professionals can select a location with
+                                conditions that promote optimal wildflower growth. Well-drained, nutrient-poor soil and
+                                a
+                                minimum of six hours of daily sunlight are key factors in providing an ideal habitat for
+                                native wildflowers.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 2: Soil Preparation and Microbial Inoculation</h2>
+                        <p>Clear the selected area of existing vegetation, and use a soil auger to examine soil
+                            structure.
+                            Loosen compacted soil using a soil aerator, and introduce beneficial mycorrhizal fungi for
+                            enhanced nutrient uptake and improved plant establishment.</p>
+                        <p class="more"><i><b>Reasoning:</b> Clearing the area of existing vegetation and examining soil
+                                structure
+                                ensures a suitable foundation for the wildflower meadow. Compacted soil is loosened to
+                                facilitate root penetration and water absorption. The introduction of beneficial
+                                mycorrhizal
+                                fungi enhances nutrient uptake, creating a symbiotic relationship that promotes the
+                                establishment and growth of wildflowers.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 3: Selection of Native Wildflower Species</h2>
+                        <p>Choose a diverse mix of native wildflower species adapted to the specific region. Consider
+                            factors such as flowering times and preferred pollinators to maximize ecological benefits.
+                            Prioritize species that are rare or threatened to contribute to conservation efforts.</p>
+                        <p class="more"><i><b>Reasoning:</b> The choice of native wildflower species is critical for the
+                                success of
+                                the meadow. Different species are adapted to specific regions and contribute to local
+                                ecosystems in unique ways. Considering factors such as flowering times and preferred
+                                pollinators maximizes ecological benefits, and prioritizing rare or threatened species
+                                supports broader conservation goals.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 4: Precision Sowing Techniques</h2>
+                        <p>Utilize precision sowing techniques to ensure even distribution of seeds. Employ a seed drill
+                            or
+                            hand seed-broadcasting method, accounting for variations in seed size and germination
+                            requirements. Follow best practices for seed depth and spacing to optimize establishment
+                            success.</p>
+                        <p class="more"><i><b>Reasoning:</b> Even distribution of seeds is essential for a balanced and
+                                diverse
+                                meadow. Precision sowing techniques, such as using a seed drill or hand broadcasting,
+                                take
+                                into account variations in seed size and germination requirements. Adhering to best
+                                practices for seed depth and spacing optimizes germination rates, ensuring successful
+                                establishment.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 5: Irrigation and Monitoring</h2>
+                        <p>Implement a controlled irrigation schedule to maintain consistent soil moisture during the
+                            establishment phase. Regularly monitor soil moisture levels, and adjust irrigation practices
+                            accordingly. Employ remote sensing technologies for real-time monitoring of meadow health
+                            and
+                            growth patterns.</p>
+                        <p class="more"><i><b>Reasoning:</b> Controlled irrigation is implemented to maintain consistent
+                                soil
+                                moisture during the establishment phase, a critical period for wildflower growth.
+                                Regular
+                                monitoring of soil moisture levels allows for adjustments to irrigation practices based
+                                on
+                                weather conditions. Remote sensing technologies provide real-time insights into meadow
+                                health and growth patterns, enabling proactive management.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 6: Biotic and Abiotic Management</h2>
+                        <p>Implement integrated pest management strategies to minimize the use of pesticides. Encourage
+                            natural predators and beneficial insects to control potential pest populations. Utilize
+                            scientific monitoring tools to assess the impact of abiotic factors such as climate and soil
+                            conditions on meadow health.</p>
+                        <p class="more"><i><b>Reasoning:</b> Integrated pest management minimizes the use of pesticides,
+                                promoting
+                                a more sustainable and ecologically friendly approach. Encouraging natural predators and
+                                beneficial insects helps control potential pest populations. Scientific monitoring tools
+                                assess the impact of abiotic factors, such as climate and soil conditions, on meadow
+                                health,
+                                guiding informed management decisions.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Step 7: Long-Term Maintenance and Adaptive Management</h2>
+                        <p>Develop a long-term management plan that includes periodic controlled burns or mowing to
+                            prevent
+                            thatch buildup and maintain meadow diversity. Implement adaptive management strategies based
+                            on
+                            ongoing ecological monitoring to respond to changing environmental conditions and optimize
+                            conservation outcomes.</p>
+                        <p class="more"><i><b>Reasoning:</b> Developing a long-term management plan ensures the
+                                continued
+                                health
+                                and diversity of the meadow. Periodic controlled burns or mowing prevent thatch buildup,
+                                maintaining meadow diversity. Adaptive management strategies, informed by ongoing
+                                ecological
+                                monitoring, allow conservation professionals to respond to changing environmental
+                                conditions
+                                and optimize conservation outcomes over time.</i></p>
+                        <div class="read-more">Read more...</div>
+
+                        <h2>Conclusion</h2>
+                        <p>By following these scientifically informed steps, conservation professionals can contribute
+                            significantly to biodiversity enhancement and ecosystem restoration through the
+                            establishment of
+                            native wildflower meadows.</p>
+
+                    </div>
+                    <div class="content-link">
+                        <!--<p>Read the guide</p>-->
+                    </div>
+                </div>
+            </div>
+            <div id="carbon-calculator" class="content">
+
+                <div id="sidebar">
+                    <div class="area">
+                        <h2></h2>
+                        <h2 id="areaValue">0 ha</h2>
+                    </div>
+
+
+
+
+
+                    <div class="selectors">
+                        <div class="currentGroup">
+                            <select id="currentHabitatType">
+                                <option disabled selected>Current</option>
+                                <option value="woodland">Woodland</option>
+                                <option value="plantation">Plantation</option>
+                                <option value="grassland">Grassland</option>
+                                <option value="silage">Silage</option>
+                                <option value="wetland">Wetland</option>
+                                <option value="salt marsh">Salt marsh</option>
+                                <option value="annual crops">Annual crops</option>
+                                <option value="perennial crops">Perennial crops</option>
+                                <option value="urban">Urban</option>
+                                <option value="peatland">Peatland</option>
+                                <option value="scrub">Scrub</option>
+                            </select>
+                            <p id="currentCarbonValue"></p>
+                        </div>
+
+                        <div class="newGroup">
+                            <select id="newHabitatType">
+                                <option disabled selected>New</option>
+                                <option value="woodland">Woodland</option>
+                                <option value="plantation">Plantation</option>
+                                <option value="grassland">Grassland</option>
+                                <option value="silage">Silage</option>
+                                <option value="wetland">Wetland</option>
+                                <option value="salt marsh">Salt marsh</option>
+                                <option value="annual crops">Annual crops</option>
+                                <option value="perennial crops">Perennial crops</option>
+                                <option value="urban">Urban</option>
+                                <option value="peatland">Peatland</option>
+                                <option value="scrub">Scrub</option>
+                            </select>
+                            <p id="newCarbonValue"></p>
+                        </div>
+                    </div>
+
+                    <div class="difference">
+                        <p id="carbonDifference">+0</p>
+                    </div>
+
+                    <!-- Add Save button -->
+                    <button id="saveButton" class="carbon-button">Save</button>
+
+                    <!-- Add Total Carbon display -->
+                    <h2>Total change:</h2>
+                    <p id="totalCarbonValue">0 tons</p>
+                </div>
+                <div id="mapid"></div>
+
+
+
+
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>App Guide</h1>
+                        <div class="more">
+                            <h2>Step one</h2>
+                            <p>Start by finding you target location then clicking on the polygon button on the left
+                                inside the map window.</p>
+                            <h2>Step two</h2>
+                            <p>Draw around the target area on the map, clicking to place each point. The further you
+                                zoom in, the more accurate the calculation will be. When you are done, click the first
+                                point again or double click on the map.</p>
+                            <h2>Step three</h2>
+                            <p>Select the current landuse type from the first drop-down selector, now select the new
+                                landuse type from the second drop-down selector. You will see some new information, the
+                                total area of the drawn shape, the current & new amounts of carbon sequested per year,
+                                and the difference.</p>
+                            <h2>Step four</h2>
+                            <p>Once happy with your choices, press save to keep the area on the map for this session
+                                (reloading the page will clear your saved areas). The area will show as a tooltip when
+                                hovering over, and it will save in the colour of the landuse type.</p>
+                        </div>
+                        <div class="read-more">Read more...</div>
+                        <h2>Considerations</h2>
+                        <p>When considering using carbon sequestration to change how we use land, there are important
+                            things to think about. First, we need to make sure the methods we choose are effective and
+                            will keep storing carbon for the long haul. It's also crucial to look at how these changes
+                            might affect the environment overall, as well as things like farming and the people who live
+                            nearby.</p>
+                        <p> We have to make sure our policies support these changes and deal with challenges like making
+                            sure we're actually storing carbon and not just moving it around. Lastly, we should think
+                            about how these changes can help us with other environmental goals and make sure they help
+                            ecosystems adapt to changes like climate change.</p>
+                        <p><b>This tool should be used in conjunction with other tools like priority habitat creation
+                                and considering the carbon cost of the management needed for maintaining each
+                                landuse.</b></p>
+                    </div>
+                </div>
+            </div>
+            <div id="habitat-calculator" class="content">
+
+                <div id="sidebar">
+                    <div class="area">
+                        <h2 id="PriAreaValue">0 ha</h2>
+                    </div>
+
+                    <div class="selectors">
+                        <div class="currentGroup">
+                            <select id="PriHabitatType">
+                                <option disabled selected>Habitat</option>
+                                <optgroup label="Woodland">
+                                    <option value="ancient woodland">Ancient Woodland</option>
+                                    <option value="lowland beech and yew woodland">Lowland Beech and Yew Woodland
+                                    </option>
+                                    <option value="lowland mixed deciduous woodland">Lowland Mixed Deciduous Woodland
+                                    </option>
+                                    <option value="lowland oak woodland">Lowland Oak Woodland</option>
+                                    <option value="lowland mixed coniferous woodland">Lowland Mixed Coniferous Woodland
+                                    </option>
+                                </optgroup>
+                                <optgroup label="Grassland">
+                                    <option value="lowland heathland">Lowland Heathland</option>
+                                    <option value="acid grassland">Acid Grassland</option>
+                                    <option value="calcareous grassland">Calcareous Grassland</option>
+                                    <option value="purple moor grass and rush pasture">Purple Moor Grass and Rush
+                                        Pasture</option>
+                                    <option value="lowland dry acid grassland">Lowland Dry Acid Grassland</option>
+                                    <option value="upland hay meadow">Upland Hay Meadow</option>
+                                </optgroup>
+                                <optgroup label="Heath and Moorland">
+                                    <option value="mountain heath">Mountain Heath</option>
+                                    <option value="mountain grassland">Mountain Grassland</option>
+                                    <option value="mountain pasture">Mountain Pasture</option>
+                                </optgroup>
+                                <optgroup label="Wetland">
+                                    <option value="blanket bog">Blanket Bog</option>
+                                    <option value="lowland raised bog">Lowland Raised Bog</option>
+                                    <option value="fen">Fen</option>
+                                    <option value="reedbed">Reedbed</option>
+                                    <option value="lowland fens">Lowland Fens</option>
+                                    <option value="purple moor grass and rush mire">Purple Moor Grass and Rush Mire
+                                    </option>
+                                    <option value="base-rich fen">Base-Rich Fen</option>
+                                </optgroup>
+                                <optgroup label="Water">
+                                    <option value="open water">Open Water</option>
+                                    <option value="brackish marsh">Brackish Marsh</option>
+                                    <option value="saltmarsh">Saltmarsh</option>
+                                    <option value="coastal dunes">Coastal Dunes</option>
+                                    <option value="mudflats">Mudflats</option>
+                                    <option value="machair">Machair</option>
+                                </optgroup>
+                                <optgroup label="Rock and Scree">
+                                    <option value="calaminarian grassland">Calaminarian Grassland</option>
+                                    <option value="serpentinous rocky slopes">Serpentinous Rocky Slopes</option>
+                                    <option value="limestone pavement">Limestone Pavement</option>
+                                    <option value="limestone grassland">Limestone Grassland</option>
+                                    <option value="limestone heath">Limestone Heath</option>
+                                    <option value="juniper scrub">Juniper Scrub</option>
+                                    <option value="purple moor grass and rush">Purple Moor Grass and Rush</option>
+                                </optgroup>
+                                <optgroup label="Upland">
+                                    <option value="mountain hare's-tail cottongrass">Mountain Hare's-tail Cottongrass
+                                    </option>
+                                    <option value="upland calcareous grassland">Upland Calcareous Grassland</option>
+                                    <option value="upland heath">Upland Heath</option>
+                                    <option value="uval">Uval</option>
+                                    <option value="subalpine scrub">Subalpine Scrub</option>
+                                    <option value="subalpine grassland">Subalpine Grassland</option>
+                                    <option value="alpine and subalpine calcareous grassland">Alpine and Subalpine
+                                        Calcareous Grassland</option>
+                                    <option value="alpine and subalpine heaths">Alpine and Subalpine Heaths</option>
+                                    <option value="alpine and subalpine cliff and slope">Alpine and Subalpine Cliff and
+                                        Slope</option>
+                                    <option value="alpine and subalpine rock vegetation">Alpine and Subalpine Rock
+                                        Vegetation</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Add Save button -->
+                    <button id="saveHabitatButton" class="carbon-button">Save</button>
+
+                    <!-- Add Total Carbon display -->
+                    <h2>Total Area:</h2>
+                    <p id="totalPriorityHabitatAreaValue">0 ha</p>
+                </div>
+                <div id="mapid2"></div>
+
+
+
+
+
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>App Guide</h1>
+                        <div class="more">
+                            <h2>Step one</h2>
+                            <p>Start by finding you target location then clicking on the polygon button on the left
+                                inside the map window.</p>
+                            <h2>Step two</h2>
+                            <p>Draw around the target area on the map, clicking to place each point. The further you
+                                zoom in, the more accurate the calculation will be. When you are done, click the first
+                                point again or double click on the map.</p>
+                            <h2>Step three</h2>
+                            <p>Select the current landuse type from the first drop-down selector, now select the new
+                                landuse type from the second drop-down selector. You will see some new information, the
+                                total area of the drawn shape, the current & new amounts of carbon sequested per year,
+                                and the difference.</p>
+                            <h2>Step four</h2>
+                            <p>Once happy with your choices, press save to keep the area on the map for this session
+                                (reloading the page will clear your saved areas). The area will show as a tooltip when
+                                hovering over, and it will save in the colour of the landuse type.</p>
+                        </div>
+                        <div class="read-more">Read more...</div>
+                        <h2>Considerations</h2>
+                        <p>When considering using carbon sequestration to change how we use land, there are important
+                            things to think about. First, we need to make sure the methods we choose are effective and
+                            will keep storing carbon for the long haul. It's also crucial to look at how these changes
+                            might affect the environment overall, as well as things like farming and the people who live
+                            nearby.</p>
+                        <p> We have to make sure our policies support these changes and deal with challenges like making
+                            sure we're actually storing carbon and not just moving it around. Lastly, we should think
+                            about how these changes can help us with other environmental goals and make sure they help
+                            ecosystems adapt to changes like climate change.</p>
+                        <p><b>This tool should be used in conjunction with other tools like priority habitat creation
+                                and considering the carbon cost of the management needed for maintaining each
+                                landuse.</b></p>
+                    </div>
+                </div>
+            </div>
+            <div id="donate" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Help support us</h1>
+
+                        <h2>Paywalls are bad, tools and information that help the planet should be free!</h2>
+                        <p>If you feel like skipping your next coffee to help us out, click the link below and select an amount you feel you can afford.</p>
+                        <h2>Giving £10 or more will get your name on the wall below.</h2>
+                        <button class="donate-button">Donate</button>
+
+
+                    </div>
+                    <div class="content-names">
+                        <p>A. Smith,</p> <p>B. Johnson,</p> <p>C. Williams,</p> <p>D. Brown,</p> <p>E. Jones,</p> <p>F. Davis,</p> <p>G. Miller,</p> <p>H. Wilson,</p> <p>I. Moore,</p> <p>J. Taylor,</p> <p>K. Anderson,</p> <p>L. Thomas,</p> <p>M. Jackson,</p> <p>N. White,</p> <p>O. Harris,</p> <p>P. Martinez,</p> <p>Q. Robinson,</p> <p>R. Clark,</p> <p>S. Rodriguez,</p> <p>T. Lewis,</p> <p>U. Walker,</p> <p>V. Hall,</p> <p>W. Young,</p> <p>X. Allen,</p> <p>Y. Sanchez,</p> <p>Z. King,</p> <p>A. Garcia,</p> <p>B. Lee,</p> <p>C. Perez,</p> <p>D. Scott,</p> <p>E. Torres,</p> <p>F. Nguyen,</p> <p>G. Hill,</p> <p>H. Rivera,</p> <p>I. Wright,</p> <p>J. Lopez,</p> <p>K. Green,</p> <p>L. Adams,</p> <p>M. Baker,</p> <p>N. Gonzalez,</p> <p>O. Nelson,</p> <p>P. Carter,</p> <p>Q. Mitchell,</p> <p>R. Roberts,</p> <p>S. Turner,</p> <p>T. Phillips,</p> <p>U. Campbell,</p> <p>V. Evans,</p> <p>W. Edwards,</p> <p>X. Stewart</p>
+                    </div>
+                </div>
+            </div>
+            <div id="paper" class="content">
+                <div class="content-block">
+
+                    <div class="content-text">
+
+                        <h1>Get a paper copy</h1>
+
+                        <h2>We don't like printing 😤</h2>
+                        <p>If you really need to print out one of our guides, here are the links. However, you are going to have to pay for the privilege. Printing harms the environment through tree harvesting, water and energy consumption, waste generation, and chemical ink usage.<b>This leads to deforestation, pollution, greenhouse gas emissions, landfill overflow, and health risks from toxins.</b> Shifting to digital alternatives and sustainable printing practices is essential to mitigate these impacts.</p>
+                        <p>That's enough ranting from me, it's £2 for each .pdf which can then be downloaded and sent to your email.</p>
+
+
+                    </div>
+                    <div class="content-link">
+                        <p><a href="#" target="_blank">Native Plants</a></p>
+                        <p><a href="#" target="_blank">Urban Rewilding</a></p>
+                        <p><a href="#" target="_blank">Wildflower Meadows</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <footer>
+    </footer>
+</body>
+<script src="script.js"></script>
+<script src="carbon_app.js"></script>
+<script src="habitat_app.js"></script>
+</html>
